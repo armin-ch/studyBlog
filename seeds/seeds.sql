@@ -2,7 +2,8 @@ CREATE TABLE user (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   username VARCHAR(40) NOT NULL,
   email VARCHAR(40) NOT NULL,
-  password 
+  password (?),
+  
 );
 
 CREATE TABLE category (
