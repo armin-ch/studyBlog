@@ -1,1 +1,1 @@
-# studyBlog
+# project-2-boilerplate
