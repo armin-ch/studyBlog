@@ -17,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/armin-ch/studyBlog/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/armin-ch/studyBlog#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
@@ -26,4 +27,7 @@
     "passport-local-sequelize": "^0.9.0",
     "sequelize": "^6.6.2"
   }
+=======
+  "homepage": "https://github.com/armin-ch/studyBlog#readme"
+>>>>>>> 2afc90c979e4a9c916da34a0fd76e164804f7252
 }
