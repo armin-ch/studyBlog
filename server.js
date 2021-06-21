@@ -6,6 +6,7 @@ const passport = require('passport')
 const { User } = require('./models')
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 const app = express()
+const expresshbs = require('express-handlebars')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -24,6 +25,11 @@ passport.deserializeUser((id, done) => {
     .then(user => done(null, user))
     .catch(err => done(err, null))
 })
+
+app.engine('handlebars', expresshbs({
+  defaultLayout: "main"
+}))
+app.set('view engine', 'handlebars')
 
 passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
