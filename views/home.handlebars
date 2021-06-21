@@ -4,8 +4,8 @@
     <input type="text" class="form-control" id="title">
   </div>
   <div class="mb-3">
-    <label for="text" class="form-label">Post</label>
-    <textarea class="form-control" id="text" rows="9"></textarea>
+    <label for="body" class="form-label">Post</label>
+    <textarea class="form-control" id="body" rows="9"></textarea>
   </div>
   <button id="submit" type="submit" class="btn btn-primary">Create Post</button>
 </form>
@@ -16,7 +16,7 @@
   $('#submit').click(event => {
     event.preventDefault()
     axios.post('/posts', {
-      text: document.getElementById('text').value,
+      body: document.getElementById('body').value,
       title: document.getElementById('title').value
     }, {
       headers: {
@@ -25,7 +25,7 @@
     })
     .then(res=>{
       console.log('post created')
-      document.getElementById('text').value = ''
+      document.getElementById('body').value = ''
       document.getElementById('title').value = ''
       })
     .catch(err => window.location = '/users/login')
