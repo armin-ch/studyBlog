@@ -1,0 +1,28 @@
+<form>
+  <div class="mb-3">
+    <label for="username" class="form-label">create your username</label>
+    <input type="text" class="form-control" id="username">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">create your Password</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+  <button id="register" type="submit" class="btn btn-primary">Register</button>
+  <br />
+  <a href="/login">login here</a>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  $('#register').click(event=>{
+    event.preventDefault()
+    $.post('/api/users/register',{
+      username: $('#username').val(),
+      password: $('#password').val()
+    }, res=>{
+      alert('user created!')
+      $('#username').val('')
+      $('#password').val('')
+      })
+  })
+</script>
