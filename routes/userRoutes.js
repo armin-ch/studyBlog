@@ -21,7 +21,7 @@ router.post('/users/login', (req, res) => {
 })
 
 router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id } })
-  .then(song => res.json(song))
+  .then(user => res.json(user))
   .catch(err => console.log(err)))
 
 module.exports = router
