@@ -1,4 +1,3 @@
-<br>
 <section class="container mb-3"></section>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -13,11 +12,21 @@
           .then(username => {
             user = username.data.username
             let elem = $(`
-        <div class="row border border-primary bg-light">
-        <h2>${posts.data[i].title}</h2>
-        <p>${posts.data[i].body}</p>
-        <span>created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</span>
-        </div>
+        <div class="card mb-3" style="width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-2 text-center center align-self-center">
+      <a href="#"><img src="./assets/img/{{post.name}}-icon.png" class="topics-img"></a>
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/project/${posts.data[i].id}"><h2>${posts.data[i].title}</h2></a></h5>
+        <p class="card-text">${posts.data[i].body}</p>
+        <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
       `)
             $('section').append(elem)
           })
