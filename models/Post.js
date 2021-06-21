@@ -9,8 +9,8 @@ Post.init(
     body: DataTypes.STRING(50000),
     score: {
       type: DataTypes.INTEGER,
-      default: 0
-  }
+      defaultValue: 0
+    }
   },
   {
     sequelize,
