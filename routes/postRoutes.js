@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Post } = require('../models')
 const passport = require('passport')
 const mysql = require('mysql2')
-const db = mysql.createConnection('mysql://root:rootroot@localhost:8809/studyblog_db')
+const db = mysql.createConnection(process.env.LOCALDB_URL)
 
 router.get('/posts', (req, res) => {
   db.query('SELECT * FROM posts', (err, posts) => {
