@@ -6,7 +6,7 @@ class Post extends Model { }
 Post.init(
   {
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
+    text: DataTypes.STRING(50000),
     score: DataTypes.INTEGER,
   },
   {
