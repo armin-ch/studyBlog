@@ -1,33 +1,35 @@
-<form>
-  <div class="mb-3">
-    <label for="title" class="form-label">post title</label>
-    <input type="text" class="form-control" id="title">
-  </div>
-  <div class="mb-3">
-    <label for="body" class="form-label">Post</label>
-    <textarea class="form-control" id="body" rows="9"></textarea>
-  </div>
-  <button id="submit" type="submit" class="btn btn-primary">Create Post</button>
-</form>
+<section class="container mb-3"></section>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-  $('#submit').click(event => {
-    event.preventDefault()
-    axios.post('/posts', {
-      body: document.getElementById('body').value,
-      title: document.getElementById('title').value
-    }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
+  let user
+  axios.get('/posts')
+    .then(posts => {
+      console.log(posts)
+      for (let i = 0; i < posts.data.length; i++) {
+        axios.get(`/api/users/${posts.data[i].user_id}`)
+          .then(username => {
+            user = username.data.username
+            let elem = $(`
+        <div class="card mb-3" style="width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-2 text-center center align-self-center">
+      <a href="#"><img src="./assets/img/{{post.name}}-icon.png" class="topics-img"></a>
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/project/${posts.data[i].id}"><h2>${posts.data[i].title}</h2></a></h5>
+        <p class="card-text">${posts.data[i].body}</p>
+        <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+      `)
+            $('section').append(elem)
+          })
       }
     })
-    .then(res=>{
-      console.log('post created')
-      document.getElementById('body').value = ''
-      document.getElementById('title').value = ''
-      })
-    .catch(err => window.location = '/users/login')
-  })
 </script>
