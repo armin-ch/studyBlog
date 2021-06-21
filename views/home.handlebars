@@ -14,11 +14,12 @@
             let elem = $(`
         <div class="card mb-3" style="width: 100%;">
           <div class="row g-0">
-            <div class="col-md-2 text-center center align-self-center">
-              <a href="#"><p class="material-icons">expand_less</p></a>
-              <a href="#"><p class="material-icons">expand_more</p></a>
+            <div class="col-md-1 text-center center align-self-center">
+              <a href="#" id="${posts.data[i].id}-up" class="d-block"><p class="material-icons">expand_less</p></a>
+          <p class="d-block">${posts.data[i].score}</p>
+          <a href="#" id="${posts.data[i].id}-down" class="d-block"><p class="material-icons">expand_more</p></a>
             </div>
-    <div class="col-md-10">
+    <div class="col-md-11">
       <div class="card-body">
         <h5 class="card-title"><a href="/project/${posts.data[i].id}"><h2>${posts.data[i].title}</h2></a></h5>
         <p class="card-text">${posts.data[i].body}</p>
