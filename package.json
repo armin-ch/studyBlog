@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/armin-ch/studyBlog/issues"
   },
-  "homepage": "https://github.com/armin-ch/studyBlog#readme"
+  "homepage": "https://github.com/armin-ch/studyBlog#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.1",
+    "passport-local-sequelize": "^0.9.0",
+    "sequelize": "^6.6.2"
+  }
 }
