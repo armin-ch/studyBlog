@@ -26,7 +26,7 @@ router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id
 
 module.exports = router
 
-
+// fix below
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
