@@ -35,6 +35,13 @@
         <p class="card-text">${posts.data[i].body.slice(0,250)}</p>
         <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</small>
         </p>
+
+        <div class="mb-3">
+    <label for="comment" class="form-label">Add Comment:</label>
+    <input type="text" name="comment" class="form-control comment">
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </div>
+
       </div>
     </div>
   </div>

@@ -45,14 +45,14 @@
         
 
         <li class="nav-item">
-          <a class="nav-link" href="/post/create">Create Post</a>
+          <a class="nav-link loggedOut" href="/post/create">Create Post</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/home" id="logout">Logout</a>
+          <a class="nav-link loggedOut" href="/home" id="logout">Logout</a>
         </li>
 
-        <li class="nav-item"><a href="/users/login" class="nav-link px-2">Login</a></li>
-        <li class="nav-item"><a href="/users/register" class="nav-link px-2">Register</a></li>
+        <li class="nav-item loggedIn"><a href="/users/login" class="nav-link px-2">Login</a></li>
+        <li class="nav-item loggedIn"><a href="/users/register" class="nav-link px-2">Register</a></li>
       </ul>
     </div>
   </nav>
@@ -71,6 +71,12 @@
         localStorage.removeItem('token')
         window.location = '/'
       })
+
+      if(localStorage.getItem('token'))
+      {
+        $('.loggedIn').hide()
+      }
+      else { $('.loggedOut').hide()}
   </script>
   
 </body>
