@@ -10,7 +10,15 @@ Post.init(
     score: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    }
+    },
+    // upvote: {
+    //   type: DataTypes.INTEGER,
+
+    // },
+    // downvote: {
+    //   type: DataTypes.INTEGER,
+      
+    // }
   },
   {
     sequelize,

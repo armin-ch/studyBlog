@@ -28,14 +28,7 @@ router.get('/categories', async (req, res) => {
 
 router.get('/category/:id', async (req, res) => {
   try {
-    const categoryData = await Category.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    const categoryData = await Category.findByPk(req.params.id);
 
     const category = categoryData.get({ plain: true });
 

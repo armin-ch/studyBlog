@@ -5,5 +5,6 @@ router.use('/api', require('./userRoutes.js'))
 router.use('/', require('./htmlRoutes.js'))
 router.use('/', require('./categoryRoutes.js'))
 router.use('/', require('./postRoutes'))
+router.use('/', require('./commentRoutes'))
 
 module.exports = router

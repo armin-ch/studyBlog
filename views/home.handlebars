@@ -1,7 +1,17 @@
+<header class="py-3 mb-4 bg-dark text-white border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
+      <span class="fs-4">Home</span>
+    </a>
+  </div>
+</header>
+
+<main class="container">
+
 <section class="container mb-3"></section>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,13 +32,15 @@
             let elem = $(`
         <div class="card mb-3" style="width: 100%;">
           <div class="row g-0">
-            <div class="col-md-2 text-center center align-self-center">
-      <a href="#"><img src="./assets/img/{{post.name}}-icon.png" class="topics-img"></a>
-    </div>
-    <div class="col-md-10">
+            <div class="col-md-1 text-center center align-self-center">
+              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up"><p class="material-icons">expand_less</p></a>
+          <p class="d-block">${posts.data[i].score}</p>
+          <a data-id="${posts.data[i].id}" href="#" class="d-block down"><p class="material-icons">expand_more</p></a>
+            </div>
+    <div class="col-md-11">
       <div class="card-body">
-        <h5 class="card-title"><a href="/project/${posts.data[i].id}"><h2>${posts.data[i].title}</h2></a></h5>
-        <p class="card-text">${posts.data[i].body}</p>
+        <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
+        <p class="card-text">${posts.data[i].body.slice(0,250)} ... <a href="/posts/${posts.data[i].id}">READ MORE >></a></p>
         <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</small>
         </p>
       </div>
