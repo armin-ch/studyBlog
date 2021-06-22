@@ -1,0 +1,142 @@
+<header class="py-3 mb-4 bg-dark text-white border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
+      <span class="fs-4">Post</span>
+    </a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-9">
+
+      {{!-- Post Box --}}
+      <div class="card mb-3" style="width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-1 text-center center align-self-top">
+            <a href="#" id="${posts.data[i].id}-up" class="d-block">
+              <span class="material-icons">expand_less</span>
+            </a>
+            <span class="d-block">{{score}}</span>
+            <a href="#" id="${posts.data[i].id}-down" class="d-block">
+              <span class="material-icons">expand_more</span>
+            </a>
+          </div>
+          <div class="col-md-11">
+            <div class="card-body">
+              <h3 class="card-title mb-3">{{title}}</h3>
+              {{!-- <small class="text-muted">Created by {{user}}</small> --}}
+              <p class="card-text">{{body}}
+                
+              </p>
+              </p>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      
+      <div class="addComment mt-5 mb-5">
+        <h5>Add Comment</h5>
+        <div class="card-comment input-group pt-1">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+        </div>
+      </div>
+      
+      <div id="showComments" class="show-comments">
+        <h5>Comments</h5>
+        <div class="list-group">
+          <span class="list-group-item">
+            <p class="mb-1">This is a placeholder comment in a single post page.</p>
+            <small>Posted by username (3 days ago)</small>
+          </span>
+          <span class="list-group-item">
+            <p class="mb-1">This is another placeholder comment in a single post page.</p>
+            <small>Posted by username2 (7 days ago)</small>
+          </span>
+          <span class="list-group-item">
+            <p class="mb-1">This is a third placeholder comment in a single post page.</p>
+            <small>Posted by username3 (22 days ago)</small>
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+    {{!-- Sidebar Right --}}
+    <div class="col-md-3">
+
+      <div class="card bg-dark text-light mb-3" style="width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div class="card-body">
+              <small class="text-muted">Topic</small>
+              <h3 class="card-title mb-3"><a href="/category/nodejs">Node.JS</a></h3>
+              <p class="card-text">Node.js allows Javascript to be applied outside a website environment.</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div class="card-body">
+              <small class="text-muted">Top Posts</small>
+              <ul>
+                <li><span class="card-text">"Zombie Ipsum"</span> <small class="text-muted">by armin</small></li>
+                <li>
+                  <span class="card-text">"Cat Ipsum"</span> <small class="text-muted">by Brandon</small>
+                </li>
+                <li><span class="card-text">"Dog Ipsum"</span> <small class="text-muted">by cally</small></li>
+                <li>
+                  <span class="card-text">"Guinea Pig Ipsum"</span> <small class="text-muted">by relaxedvibes</small>
+                </li>
+              </ul>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+
+  {{!-- <form>
+    <div class="mb-3">
+      <label for="title" class="form-label">post title</label>
+      <input type="text" class="form-control" id="title">
+    </div>
+    <div class="mb-3">
+      <label for="body" class="form-label">Post</label>
+      <textarea class="form-control" id="body" rows="9"></textarea>
+    </div>
+    <button id="submit" type="submit" class="btn btn-primary">Create Post</button>
+  </form> --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    $('#submit').click(event => {
+      event.preventDefault()
+      axios.post('/posts', {
+        body: document.getElementById('body').value,
+        title: document.getElementById('title').value
+      }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(res => {
+          console.log('post created')
+          document.getElementById('body').value = ''
+          document.getElementById('title').value = ''
+        })
+        .catch(err => window.location = '/users/login')
+    })
+  </script>

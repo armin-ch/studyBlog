@@ -20,6 +20,10 @@ router.get('/home', (req, res) => {
   res.render('home')
 })
 
+// router.get('/posts/:id', (req, res) => {
+//   res.render('post')
+// })
+
 router.get('/post/create', (req, res) => {
   res.render('create')
 })
