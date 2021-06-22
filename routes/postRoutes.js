@@ -10,12 +10,13 @@ router.get('/posts', (req, res) => {
     res.json(posts)
   })
 })
-
 router.get('/posts/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
+    const postData = await Post.findByPk(req.params.id, {
+      include: [User]
+    });
     const post = postData.get({ plain: true });
-
+    
     res.render('post', {
       ...post
     });

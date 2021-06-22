@@ -25,7 +25,7 @@
           <div class="col-md-11">
             <div class="card-body">
               <h3 class="card-title mb-3">{{title}}</h3>
-              {{!-- <small class="text-muted">Created by {{user}}</small> --}}
+              <small class="text-muted">Created by {{User.username}}</small>
               <p class="card-text">{{body}}
                 
               </p>
@@ -39,9 +39,9 @@
       <div class="addComment mt-5 mb-5">
         <h5>Add Comment</h5>
         <div class="card-comment input-group pt-1">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+          <textarea class="form-control" id="commentText" rows="2"></textarea>
 
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+          <button data-pid="{{id}}" class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
         </div>
       </div>
       
@@ -106,37 +106,23 @@
   </div>
 
   
-
-  {{!-- <form>
-    <div class="mb-3">
-      <label for="title" class="form-label">post title</label>
-      <input type="text" class="form-control" id="title">
-    </div>
-    <div class="mb-3">
-      <label for="body" class="form-label">Post</label>
-      <textarea class="form-control" id="body" rows="9"></textarea>
-    </div>
-    <button id="submit" type="submit" class="btn btn-primary">Create Post</button>
-  </form> --}}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     $('#submit').click(event => {
       event.preventDefault()
-      axios.post('/posts', {
-        body: document.getElementById('body').value,
-        title: document.getElementById('title').value
+      axios.post(`/posts/comment/${event.target.dataset.pid}`, {
+        text: document.getElementById('commentText').value
       }, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       })
         .then(res => {
-          console.log('post created')
-          document.getElementById('body').value = ''
-          document.getElementById('title').value = ''
+          console.log('comment created')
+          document.getElementById('commentText').value = ''
         })
-        .catch(err => window.location = '/users/login')
-    })
+        .catch(err => console.log(err))
+    }) 
   </script>
