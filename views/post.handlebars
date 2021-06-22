@@ -108,6 +108,7 @@
         .then(res => {
           console.log('comment created')
           document.getElementById('commentText').value = ''
+          location.reload()
         })
         .catch(err => console.log(err))
     })
