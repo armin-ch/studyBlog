@@ -1,54 +1,65 @@
-<header class="py-3 mb-4 bg-dark text-white border-bottom">
-  <div class="container d-flex flex-wrap justify-content-center">
-    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
-      <span class="fs-4">Home</span>
-    </a>
-  </div>
-</header>
-
 <main class="container">
+  <div class="row1">
+    <div class="col1">
+      <h1 id="intro"><b>Programming made easy.</b></h1>
+      <h1 id="intro"><b>Study smarter.</b></h1>
+      <h1 id="intro"><b>Google less.</b></h1>
 
-<section class="container mb-3"></section>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Noto+Sans+SC:wght@300&display=swap" rel="stylesheet">
-  
-  
- <script> 
-  let user
-  axios.get('/posts')
-    .then(posts => {
-      console.log(posts)
-      for (let i = 0; i < posts.data.length; i++) {
-        axios.get(`/api/users/${posts.data[i].user_id}`)
-          .then(username => {
-            user = username.data.username
-            let elem = $(`
-        <div class="card mb-3" style="width: 100%;">
-          <div class="row g-0">
-            <div class="col-md-1 text-center center align-self-center">
-              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up"><p class="material-icons">expand_less</p></a>
-          <p class="d-block">${posts.data[i].score}</p>
-          <a data-id="${posts.data[i].id}" href="#" class="d-block down"><p class="material-icons">expand_more</p></a>
-            </div>
-    <div class="col-md-11">
-      <div class="card-body">
-        <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
-        <p class="card-text">${posts.data[i].body.slice(0,250)} ... <a href="/posts/${posts.data[i].id}">READ MORE >></a></p>
-        <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0,10)}</small>
-        </p>
+      <div class="container">
+        <div class="justify-content-center align-items-center">
+          <div class="col-md-8">
+            <div class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control"
+                placeholder="Search Topics..."> <button class="btn btn-secondary">Search</button> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col2">
+    </div>
+  </div>
+
+  <div class="row2">
+    <div class="col1-2">
+      <h2>Study Blog</h2>
+      <p>A blog for developers. Learn, create, and help others through a connected community of likeminded web
+        developers. Browse through study material others have posted or show off skills you have already
+        mastered.Studying is made easy through top filtered posts on CSS, HTML5, and JavaScript.</p>
+    </div>
+    <div class="col2-2"></div>
+  </div>
+  <div class="row3">
+    <div class="col1-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./assets/img/study4.jpg" class="card-img-top" alt="categories">
+        <div class="card-body">
+          <h5 class="card-title">Categories</h5>
+          <p class="card-text"> Choose from CSS, HTML5, and Javascript.
+          </p>
+          <a href="/category" class="btn btn-secondary">Categories</a>
+        </div>
+      </div>
+    </div>
+    <div class="col2-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./assets/img/study3.jpg" class="card-img-top" alt="popular">
+        <div class="card-body">
+          <h5 class="card-title">Popular</h5>
+          <p class="card-text">View popular posts that have helped people just like you looking for web development
+            help.
+          </p>
+          <a href="/dashboard" class="btn btn-secondary">Popular</a>
+        </div>
+      </div>
+    </div>
+    <div class="col3-3">
+      <div class="card" style="width: 18rem;">
+        <img src="./assets/img/study2.jpg" class="card-img-top" alt="create">
+        <div class="card-body">
+          <h5 class="card-title">Create</h5>
+          <p class="card-text">Join our community and create a post to help others study material that you've mastered!
+          </p>
+          <a href="/posts/create" class="btn btn-secondary">Create</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-      `)
-            $('section').append(elem)
-          })
-      }
-    })

@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { Category, User } = require('../models');
+const { Category, User, Post } = require('../models');
+const passport = require('passport')
+const mysql = require('mysql2')
+const db = require('../db')
 
 router.get('/categories', async (req, res) => {
   try {

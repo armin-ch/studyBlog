@@ -20,6 +20,10 @@ router.get('/home', (req, res) => {
   res.render('home')
 })
 
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard')
+})
+
 // router.get('/posts/:id', (req, res) => {
 //   res.render('post')
 // })
