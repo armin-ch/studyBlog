@@ -47,20 +47,6 @@
       
       <div id="showComments" class="show-comments">
         <h5>Comments</h5>
-        <div class="list-group">
-          <span class="list-group-item">
-            <p class="mb-1">This is a placeholder comment in a single post page.</p>
-            <small>Posted by username (3 days ago)</small>
-          </span>
-          <span class="list-group-item">
-            <p class="mb-1">This is another placeholder comment in a single post page.</p>
-            <small>Posted by username2 (7 days ago)</small>
-          </span>
-          <span class="list-group-item">
-            <p class="mb-1">This is a third placeholder comment in a single post page.</p>
-            <small>Posted by username3 (22 days ago)</small>
-          </span>
-        </div>
 
       </div>
 
@@ -124,5 +110,22 @@
           document.getElementById('commentText').value = ''
         })
         .catch(err => console.log(err))
-    }) 
+    })
+    axios.get(`/comments/${document.getElementById('submit').dataset.pid}`)
+    .then(res=>{
+      console.log(res.data)
+      for(let i=0; i<res.data.length; i++)
+      {
+        axios.get(`/api/users/${res.data[i].uid}`)
+        .then(username=>{
+          let elem = $(`<div class="list-group">
+          <span class="list-group-item">
+            <p class="mb-1">${res.data[i].text}</p>
+            <small>Posted by ${username.data.username}</small>
+          </span>
+        </div>`)
+        $('#showComments').append(elem)
+        })
+      }
+    })
   </script>
