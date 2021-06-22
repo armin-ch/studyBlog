@@ -1,6 +1,7 @@
 const User = require('./User.js')
 const Category = require('./Category.js')
 const Post = require('./Post.js')
+const Comment = require('./Comment.js')
 
 // your relationships go here...
 User.hasMany(Post, {
@@ -9,6 +10,12 @@ User.hasMany(Post, {
 Category.hasMany(Post, {
   foreignKey: 'category_id'
 })
+User.hasMany(Comment, {
+  foreignKey: 'uid'
+})
+Post.hasMany(Comment, {
+  foreignKey: 'post_id'
+})
 
 
-module.exports = { User, Category, Post }
+module.exports = { User, Category, Post, Comment }
