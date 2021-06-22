@@ -1,7 +1,9 @@
+
 /* home page */
 
 .container {
   padding-top: 20px;
+  
 }
 
 .row1 {
@@ -79,14 +81,4 @@
 }
 
 /* category page */
-.card-body a {
-  color: #666;
-}
 
-.topics-icon {
-  font-size: 5rem;
-}
-
-.topics-img {
-  max-width: 75px;
-}
