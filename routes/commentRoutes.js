@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Post } = require('../models')
+const { Comment } = require('../models')
 const passport = require('passport')
 const mysql = require('mysql2')
 const db = require('../db')
