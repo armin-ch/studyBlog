@@ -43,7 +43,7 @@
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         
-        {{#if logged_in}}
+
         <li class="nav-item">
           <a class="nav-link" href="/post/create">Create Post</a>
         </li>
@@ -51,10 +51,8 @@
           <a class="nav-link" href="/home" id="logout">Logout</a>
         </li>
 
-        {{else}}
         <li class="nav-item"><a href="/users/login" class="nav-link px-2">Login</a></li>
         <li class="nav-item"><a href="/users/register" class="nav-link px-2">Register</a></li>
-        {{/if}}
       </ul>
     </div>
   </nav>
