@@ -19,7 +19,7 @@
   <nav class="py-2 bg-dark text-white border-bottom">
     <div class="container d-flex flex-wrap">
       <ul class="nav me-auto">
-        <li class="nav-item"><a href="#" class="nav-link px-2 active link-light" aria-current="page"><span
+        <li class="nav-item"><a href="/" class="nav-link px-2 active link-light" aria-current="page"><span
               class="material-icons">
               polymer
             </span> &nbsp; <span class="navbar-brand">Study Blog</span></a></li>
@@ -30,22 +30,23 @@
               Topics
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">HTML/CSS</a></li>
+              <li><a class="dropdown-item" href="#">Javascript</a></li>
+              <li><a class="dropdown-item" href="#">Node.JS</a></li>
+              <li><a class="dropdown-item" href="#">MySQL</a></li>
             </ul>
           </div>
         </li>
       </ul>
-      <ul class="nav">
+      <ul class="nav text-white">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
+        
+        {{#if logged_in}}
         <li class="nav-item">
           <a class="nav-link" href="/post/create">Create Post</a>
         </li>
-        
-        {{#if logged_in}}
         <li class="nav-item">
           <a class="nav-link" href="/home" id="logout">Logout</a>
         </li>
@@ -57,18 +58,7 @@
       </ul>
     </div>
   </nav>
-  <header class="py-3 mb-4 bg-dark text-white border-bottom">
-    <div class="container d-flex flex-wrap justify-content-center">
-      <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
-        <span class="fs-4">Topics</span>
-      </a>
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
-    </div>
-  </header>
 
-  <main class="container">
     {{{body}}}
   </main>
   <footer></footer>
