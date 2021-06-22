@@ -17,7 +17,7 @@ router.post('/posts/comment/:pid', passport.authenticate('jwt'), (req, res) => C
   .catch(err => console.log(err)))
 
   router.get('/comments/:pid', (req,res)=>{
-    db1.query(`SELECT text FROM comments WHERE post_id = ${req.params.pid}`, (err,comments)=>{
+    db1.query(`SELECT text, uid FROM comments WHERE post_id = ${req.params.pid}`, (err,comments)=>{
       if (err) { console.log(err) }
       res.json(comments)
     })
