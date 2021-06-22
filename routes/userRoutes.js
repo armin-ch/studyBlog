@@ -25,4 +25,3 @@ router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id
   .catch(err => console.log(err)))
 
 module.exports = router
-
