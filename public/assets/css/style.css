@@ -1,3 +1,7 @@
+.card-body a {
+  color: #666;
+}
+
 .topics-icon {
   font-size: 5rem;
 }
