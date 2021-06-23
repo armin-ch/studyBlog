@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { User, Category, Post, Comment } = require('../models')
 
 router.get('/', (req, res) => {
   res.render('home')
@@ -22,19 +21,7 @@ router.get('/home', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-
-  Post.findAll()
-  .then(postData =>{
-  const posts = postData.map(post=>post.get({plain:true}))
-  console.log(posts)
-    res.render('dashboard',{posts})
-  })
-  .catch(err =>{
-    console.log(err)
-    res.json(err)
-  })
-  
-
+  res.render('dashboard', { subhead: 'Dashboard' })
 })
 
 // router.get('/posts/:id', (req, res) => {
