@@ -10,7 +10,7 @@ router.get('/categories', (req, res) => {
   Category.findAll()
   .then(categoryData => {
     const categories = categoryData.map(data => data.get({ plain: true }))
-    
+
     res.render('categories', {
       categories,
       subhead: 'Topics' })
