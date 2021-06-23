@@ -2,11 +2,36 @@
 
 <main class="container">
 
-  <section class="container mb-3"></section>
+  <section class="container mb-3">
+    {{#each posts as |post|}}
+    <div class="card mb-3" style="width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-1 text-center center align-self-center">
+          <a data-score="{{post.score}}" data-id="{{post.id}}" href="#" class="d-block up">
+            <p class="material-icons">expand_less</p>
+          </a>
+          <p class="d-block">{{post.score}}</p>
+          <a data-id="{{post.id}}" href="#" class="d-block down">
+            <p class="material-icons">expand_more</p>
+          </a>
+        </div>
+        <div class="col-md-11">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/posts/{{post.id}}">{{post.title}}</a></h5>
+            <p class="card-text">{{post.body}} ... <a href="/posts/{{post.id}}">READ MORE
+                >></a></p>
+            <small class="text-muted">created by {{user}} on {{post.updatedAt}}</small>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </section>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
+  {{!-- <script>
     let user
     axios.get('/posts')
       .then(posts => {
@@ -38,4 +63,4 @@
             })
         }
       })
-  </script>
+  </script> --}}
