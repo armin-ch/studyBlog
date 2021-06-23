@@ -1,0 +1,20 @@
+{{> subhead}}
+
+<!-- Loop over each object in the category array -->
+{{#each categories as |category| }}
+
+<div class="card mb-3" style="width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-2 text-center center align-self-center">
+      <a href="#"><img src="./assets/img/{{category.name}}-icon.png" class="topics-img"></a>
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+          <h5 class="card-title"><a href="/categories/{{category.id}}">{{category.name}}</a></h5>
+        <p class="card-text mb-3">{{category.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/each}}
