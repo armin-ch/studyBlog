@@ -9,13 +9,13 @@
         <p class="material-icons">expand_less</p>
       </a>
       <p class="d-block">{{post.score}}</p>
-      <a data-id="${posts.data[i].id}" href="#" class="d-block down">
+      <a data-id="{{post.id}}" href="/posts/{{post.id}}" class="d-block down">
         <p class="material-icons">expand_more</p>
       </a>
     </div>
     <div class="col-md-11">
       <div class="card-body">
-        <h5 class="card-title"><a href="/posts/${posts.data[i].id}">{{post.title}}</a></h5>
+        <h5 class="card-title"><a href="/posts/{{post.id}}">{{post.title}}</a></h5>
         <p class="card-text">{{post.body}}</p>
         {{!-- <small class="text-muted">posted by {{User.username}}</small> --}}
         </p>
