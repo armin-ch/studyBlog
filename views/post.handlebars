@@ -36,7 +36,6 @@
           <textarea class="form-control" id="commentText" rows="2"></textarea>
 
           <button data-pid="{{id}}" class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
-          <button data-pid="{{id}}" class="btn btn-outline-secondary" type="button" id="delete">Delete</button>
         </div>
       </div>
       
@@ -124,17 +123,4 @@
         })
       }
     })
-    $('#delete').click(event => {
-        event.preventDefault()
-        axios.delete(`/posts/comment/${event.target.dataset.pid}`, {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-          .then(res => {
-            console.log('comment deleted')
-            location.reload()
-          })
-          .catch(err => console.log(err))
-      })
   </script>
