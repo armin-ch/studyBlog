@@ -1,10 +1,4 @@
-<header class="py-3 mb-4 bg-dark text-white border-bottom">
-  <div class="container d-flex flex-wrap justify-content-center">
-    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
-      <span class="fs-4">Post</span>
-    </a>
-  </div>
-</header>
+{{> subhead}}
 
 <main class="container">
   <div class="row">
@@ -42,6 +36,7 @@
           <textarea class="form-control" id="commentText" rows="2"></textarea>
 
           <button data-pid="{{id}}" class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
+          <button data-pid="{{id}}" class="btn btn-outline-secondary" type="button" id="delete">Delete</button>
         </div>
       </div>
       
@@ -59,8 +54,8 @@
           <div class="col-md-12">
             <div class="card-body">
               <small class="text-muted">Topic</small>
-              <h3 class="card-title mb-3"><a href="/category/nodejs">Node.JS</a></h3>
-              <p class="card-text">Node.js allows Javascript to be applied outside a website environment.</p>
+              <h3 class="card-title mb-3"><a href="/category/nodejs">{{Category.name}} Node.JS</a></h3>
+              <p class="card-text">{{Category.description}} Node.js allows Javascript to be applied outside a website environment.</p>
               </p>
             </div>
           </div>

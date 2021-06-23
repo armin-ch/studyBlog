@@ -1,39 +1,31 @@
-<header class="py-3 mb-4 bg-dark text-white border-bottom">
-  <div class="container d-flex flex-wrap justify-content-center">
-    <a href="/category" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
-      <span class="fs-4">Topics</span>
-    </a>
-  </div>
-</header>
+{{> subhead}}
 
-<main class="container">
-
-<!-- Loop over each object in the category array -->
-{{#each categories as |category| }}
+{{#each posts as |post|}}
 
 <div class="card mb-3" style="width: 100%;">
   <div class="row g-0">
-    <div class="col-md-2 text-center center align-self-center">
-      <a href="#"><img src="./assets/img/{{category.name}}-icon.png" class="topics-img"></a>
+    <div class="col-md-1 text-center center align-self-center">
+      <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up">
+        <p class="material-icons">expand_less</p>
+      </a>
+      <p class="d-block">{{post.score}}</p>
+      <a data-id="${posts.data[i].id}" href="#" class="d-block down">
+        <p class="material-icons">expand_more</p>
+      </a>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-11">
       <div class="card-body">
-          <h5 class="card-title"><a href="/project/{{category.id}}">{{category.name}}</a></h5>
-        <p class="card-text">{{category.description}}</p>
-        <p class="card-text">
-          <span class="badge bg-success">Top</span> 
-          <a href="#">
-            <i class="badge bg-light text-dark">"How to calculate CS cpecificity" posted by ageekdev</i>
-            </a>
-          <small class="text-muted">Posted 2 months ago</small>
-        </p>
-        <p class="card-text"><span class="badge bg-primary">New</span> <i class="badge bg-light text-dark"><a
-              href="#">"How to vertically center a div"</a> posted by <a href="#">slowpokie</a></i>
-          <small class="text-muted">Posted 3 mins ago</small>
+        <h5 class="card-title"><a href="/posts/${posts.data[i].id}">{{post.title}}</a></h5>
+        <p class="card-text">{{post.body}}</p>
+        {{!-- <small class="text-muted">posted by {{User.username}}</small> --}}
         </p>
       </div>
     </div>
   </div>
 </div>
+
+<h1></h1>
+<p></p>
+
 
 {{/each}}

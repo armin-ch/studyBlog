@@ -4,9 +4,8 @@
   padding-top: 20px;
 }
 
-.row1 {
-  display: grid;
-  grid-template-columns: 50% 50%;
+#row1 {
+  display: flex;
   background-image: url("../img/background2.jpg");
   background-color: aqua;
   max-width: 100%;
@@ -15,7 +14,7 @@
   background-position: center;
 }
 
-.col1 {
+#introcol {
   color: rgba(255, 255, 254, 0.815);
   text-align: left;
   padding-top: 40px;
@@ -23,27 +22,27 @@
   font-family: 'Permanent Marker', cursive;
 }
 
-.row2 {
-  display: grid;
-  grid-template-columns: 60% 40%;
+#row2 {
+  dislay: flex;
   height: 200px;
   font-size: 1.3em;
   font-family: 'Caveat', cursive;
   font-family: 'Noto Sans SC', sans-serif;
 }
 
-.col2-2 {
+#chevroncol {
+  
   background-color: rgb(58, 55, 55);
   clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
 
-.col1-2 {
+#infocol {
+  
   text-align: center;
 }
 
-.row3 {
-  display: grid;
-  grid-template-columns: 33.333% 33.333% 33.333%;
+#row3 {
+  display: flex;
   height: 400px;
   background: white;
   gap: 1em;
@@ -79,6 +78,7 @@
 }
 
 /* category page */
+
 .card-body a {
   color: #666;
 }
