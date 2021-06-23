@@ -21,7 +21,7 @@ router.get('/home', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard')
+  res.render('dashboard', { subhead: 'Dashboard' })
 })
 
 // router.get('/posts/:id', (req, res) => {
