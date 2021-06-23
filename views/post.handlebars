@@ -14,11 +14,11 @@
       <div class="card mb-3" style="width: 100%;">
         <div class="row g-0">
           <div class="col-md-1 text-center center align-self-top">
-            <a href="#" id="${posts.data[i].id}-up" class="d-block">
+            <a href="#" id="${posts.data[i].id}-up" class="d-block up">
               <span class="material-icons">expand_less</span>
             </a>
             <span class="d-block">{{score}}</span>
-            <a href="#" id="${posts.data[i].id}-down" class="d-block">
+            <a href="#" id="${posts.data[i].id}-down" class="d-block down">
               <span class="material-icons">expand_more</span>
             </a>
           </div>
@@ -128,5 +128,34 @@
         $('#showComments').append(elem)
         })
       }
+    })
+
+    $('.up').click(event=>{
+      event.preventDefault()
+      console.log('up')
+      axios.put(`/posts/{{id}}`, {
+        score: {{ score }} +1
+      },
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+        .then(res => { location.reload() })
+        .catch(err => console.log(err))
+    })
+    $('.down').click(event => {
+        event.preventDefault()
+        console.log('down')
+        axios.put(`/posts/{{id}}`, {
+          score: {{ score }} - 1
+      },
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+        .then(res => { location.reload() })
+        .catch(err => console.log(err))
     })
   </script>
