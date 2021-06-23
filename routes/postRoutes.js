@@ -10,6 +10,7 @@ router.get('/posts', (req, res) => {
     res.json(posts)
   })
 })
+
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -23,7 +24,6 @@ router.get('/posts/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-
 })
 
 router.post('/posts', passport.authenticate('jwt'), (req, res) => Post.create({

@@ -22,6 +22,7 @@ router.get('/home', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
+
   Post.findAll()
   .then(postData =>{
   const posts = postData.map(post=>post.get({plain:true}))
@@ -33,6 +34,7 @@ router.get('/dashboard', (req, res) => {
     res.json(err)
   })
   
+
 })
 
 // router.get('/posts/:id', (req, res) => {
