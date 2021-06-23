@@ -9,16 +9,20 @@
   background-image: url("../img/background2.jpg");
   background-color: aqua;
   max-width: 100%;
+  height: 450px;
+  background-size: cover;
   background-position: center;
 }
 #introcol {
   color: rgba(255, 255, 254, 0.815);
   text-align: left;
   padding-top: 40px;
+  padding-left: 20px;
   font-family: 'Permanent Marker', cursive;
 }
+
 #row2 {
-  dislay: flex;
+  display: flex;
   height: 200px;
   font-size: 1.3em;
   font-family: 'Caveat', cursive;
@@ -29,6 +33,7 @@
   background-color: rgb(58, 55, 55);
   clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
+
 #infocol {
   text-align: center;
 }
@@ -36,7 +41,8 @@
   display: flex;
   height: 400px;
   background: white;
-  gap: 1em;
+  font-family: 'Caveat', cursive;
+  font-family: 'Noto Sans SC', sans-serif;
 }
 
 /* category page */
