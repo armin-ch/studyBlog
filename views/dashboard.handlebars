@@ -44,9 +44,9 @@
         <div class="card mb-3" style="width: 100%;">
           <div class="row g-0">
             <div class="col-md-1 text-center center align-self-center">
-              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" onclick="upScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block up"><p class="material-icons">expand_less</p></a>
+              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up"><p class="material-icons">expand_less</p></a>
           <p class="d-block">${posts.data[i].score}</p>
-          <a data-id="${posts.data[i].id}" href="#" onclick="downScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block down"><p class="material-icons">expand_more</p></a>
+          <a data-id="${posts.data[i].id}" href="#" class="d-block down"><p class="material-icons">expand_more</p></a>
             </div>
     <div class="col-md-11">
       <div class="card-body">
@@ -60,37 +60,7 @@
 </div>
       `)
               $('section').append(elem)
-              
             })
         }
       })
-
-      function upScore(votes,id){
-        votes++
-        console.log("CLicked up")
-        axios.put(`/posts/${id}`, {
-          score: votes
-        },
-        {
-            headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-          .then(res=>{location.reload()})
-          .catch(err => console.log(err))
-      }
-      function downScore(votes, id) {
-          votes--
-          console.log("CLicked down")
-          axios.put(`/posts/${id}`, {
-            score: votes
-          },
-            {
-              headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-              }
-            })
-            .then(res => { location.reload() })
-            .catch(err => console.log(err))
-        }
-  </script>
+  </script> --}}
