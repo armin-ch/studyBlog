@@ -4,6 +4,7 @@ const passport = require('passport')
 const mysql = require('mysql2')
 const db = require('../db')
 
+
 // get all categories
 router.get('/categories', (req, res) => {
   Category.findAll()
@@ -18,6 +19,7 @@ router.get('/categories', (req, res) => {
     res.status(500).json(err)
   })
 })
+
 
 
 // show single category
