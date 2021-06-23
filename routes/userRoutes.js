@@ -2,13 +2,37 @@ const router = require('express').Router()
 const { User } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
+const nodemailer = require('nodemailer')
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'studyblognoresponse@gmail.com',
+    pass: 'studyblog2021'
+  }
+})
+
+
 
 router.post('/users/register', (req, res) => {
-  const { username } = req.body
+  const { username, email } = req.body
   User.register(new User({
-    username
+    username, email
   }), req.body.password, err => {
     if (err) { console.log(err) }
+    let mailOptions = {
+      from: 'studyblognoresponse@gmail.com',
+      to: email,
+      subject: 'Study Blog Account Created!',
+      text: 'Your study blog account has been created. You may now login using your username and password.'
+    }
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    })
     res.sendStatus(200)
   })
 })
