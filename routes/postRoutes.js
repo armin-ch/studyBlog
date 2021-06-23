@@ -29,7 +29,8 @@ router.get('/posts/:id', async (req, res) => {
 router.post('/posts', passport.authenticate('jwt'), (req, res) => Post.create({
   title: req.body.title,
   body: req.body.body,
-  user_id: req.user.id
+  user_id: req.user.id,
+  category_id: req.body.category_id
 })
   .then(post => res.json(post))
   .catch(err => console.log(err)))
