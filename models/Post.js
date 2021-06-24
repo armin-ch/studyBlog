@@ -6,7 +6,7 @@ class Post extends Model { }
 Post.init(
   {
     title: DataTypes.STRING,
-    body: DataTypes.TEXT,
+    body: DataTypes.BLOB,
     score: {
       type: DataTypes.INTEGER,
       defaultValue: 0
@@ -17,7 +17,7 @@ Post.init(
     // },
     // downvote: {
     //   type: DataTypes.INTEGER,
-      
+
     // }
   },
   {
