@@ -48,6 +48,10 @@ router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id
   .then(user => res.json(user))
   .catch(err => console.log(err)))
 
+router.get('/validate/users/:uid', passport.authenticate('jwt'), (req, res) => User.findOne({ where: { id: req.params.uid } })
+  .then(user=>res.json(req.user.id)))
+
+
 router.get('/users/posts/:uid', (req, res) => Post.findAll({ where: { user_id: req.params.uid } })
   .then(posts => res.json(posts))
   .catch(err => console.log(err)))
