@@ -45,6 +45,11 @@
   font-family: 'Noto Sans SC', sans-serif;
 }
 
+/* post page */
+.card {
+  background-color: rgba(0,0,0,0.2) !important;
+}
+
 /* category page */
 .card-body a {
   color: #666;
