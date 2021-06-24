@@ -26,8 +26,13 @@
     <div class="col-md-11">
       <div class="card-body">
         <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
-        <p class="card-text">${posts.data[i].body.slice(0, 250)} ... <a href="/posts/${posts.data[i].id}">READ MORE >></a></p>
-        <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0, 10)}</small>
+        <p class="card-text">${posts.data[i].body.slice(0, 250)} ...</p>
+        <div class="col-md-6">
+          <small class="text-muted">created by ${user} on ${posts.data[i].updatedAt.slice(0, 10)}</small>
+        </div>
+        <div class="col-md-6">
+          <a href="#" class="btn btn-outline-dark btn-lg" role="button">View Full Post</a>
+        </div>
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Post, User } = require('../models')
+const { Post, User, Category } = require('../models')
 const passport = require('passport')
 const mysql = require('mysql2')
 const db = mysql.createConnection(process.env.JAWSDB_URL || process.env.LOCALDB_URL)
@@ -14,7 +14,7 @@ router.get('/posts', (req, res) => {
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [User]
+      include: [User, Category]
     });
     const post = postData.get({ plain: true });
     
