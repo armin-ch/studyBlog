@@ -24,6 +24,7 @@
         </div>
         <div class="col-md-2">
           <a href="/posts/${posts.data[i].id}" class="btn btn-outline-dark" role="button">View Full Post</a>
+          <button onclick="deletePost(${posts.data[i].id})" class="btn btn-danger delete">delete post</button>
         </div>
         </p>
       </div>
@@ -36,7 +37,6 @@
     })
     axios.get('/api/users/{{user_id}}')
     .then(user=>{
-      console.log(user)
       $('h1').append(user.data.username)
     })
     function upScore(votes, id) {
@@ -65,4 +65,31 @@
           .then(res => { location.reload() })
           .catch(err => console.log(err))
       }
+
+  function deletePost(pid){
+    axios.get('/api/validate/users/{{user_id}}', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(res => {
+            if ({{ user_id }} == res.data){
+              axios.delete(`/posts/${pid}`, {
+              headers: {
+              'Authorization': `Bearer ${ localStorage.getItem('token') }`
+          }
+        })
+        .then(res2=>{
+          console.log('post deleted')
+          location.reload()
+          })
+        .catch (err=>console.log(err)) 
+        }
+        else { alert('You are not authorized to delete this post. Only the user who made the post can delete it.')}
+      })
+    .catch (err=> console.log(err))
+
+  }
+
+  
   </script>
