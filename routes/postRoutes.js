@@ -14,10 +14,15 @@ router.get('/posts', (req, res) => {
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [User, Category]
+      include: [{ 
+          model: User
+        },
+        {
+          model: Category
+        }]
     });
     const post = postData.get({ plain: true });
-    
+    console.log(post)
     res.render('post', {
       ...post
     });
