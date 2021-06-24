@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../models')
+const { User, Post } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
@@ -46,6 +46,18 @@ router.post('/users/login', (req, res) => {
 
 router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id } })
   .then(user => res.json(user))
+  .catch(err => console.log(err)))
+
+router.get('/users/posts/:uid', (req, res) => Post.findAll({ where: { user_id: req.params.uid } })
+  .then(posts => res.json(posts))
+  .catch(err => console.log(err)))
+
+router.get('/users/viewposts/:uid', (req, res) => Post.findAll({ where: { id: req.params.uid } })
+  .then(posts => {
+    res.render('userPosts', {
+      user_id: req.params.uid
+    })
+  })
   .catch(err => console.log(err)))
 
 module.exports = router

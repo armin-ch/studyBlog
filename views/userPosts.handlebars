@@ -1,0 +1,38 @@
+<h1>{{user_id}}</h1>
+<section id="userPosts"></section>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    axios.get('/api/users/posts/{{user_id}}')
+    .then(posts=>{
+      console.log(posts)
+      for(let i=0; i<posts.data.length; i++) {
+        let elem = $(`
+        <div class="card mb-3" style="width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-1 text-center center align-self-center">
+              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" onclick="upScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block up"><p class="material-icons">expand_less</p></a>
+          <p class="d-block">${posts.data[i].score}</p>
+          <a data-id="${posts.data[i].id}" href="#" onclick="downScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block down"><p class="material-icons">expand_more</p></a>
+            </div>
+    <div class="col-md-11">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
+        <p class="card-text">${posts.data[i].body.slice(0, 250)} ...</p>
+        <div class="col-md-19">
+          <small class="text-muted">created on ${posts.data[i].updatedAt.slice(0, 10)}</small>
+        </div>
+        <div class="col-md-2">
+          <a href="/posts/${posts.data[i].id}" class="btn btn-outline-dark" role="button">View Full Post</a>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+      `)
+        $('#userPosts').append(elem)
+      }
+    })
+  </script>
