@@ -66,15 +66,7 @@
           <div class="col-md-12">
             <div class="card-body">
               <small class="text-muted">Top Posts</small>
-              <ul>
-                <li><span class="card-text">"Zombie Ipsum"</span> <small class="text-muted">by armin</small></li>
-                <li>
-                  <span class="card-text">"Cat Ipsum"</span> <small class="text-muted">by Brandon</small>
-                </li>
-                <li><span class="card-text">"Dog Ipsum"</span> <small class="text-muted">by cally</small></li>
-                <li>
-                  <span class="card-text">"Guinea Pig Ipsum"</span> <small class="text-muted">by relaxedvibes</small>
-                </li>
+              <ul id="topPosts">
               </ul>
             </div>
       
@@ -90,7 +82,15 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    
+    axios.get('/topposts/{{category.id}}')
+    .then(posts=>{
+      console.log(posts)
+      for(let i=posts.data.length -1; i>=0; i--){
+        let elem = $(`<li><span class="card-text"><a href="/post/${posts.data[i].id}">${posts.data[i].title}</a> with ${posts.data[i].score} upvotes</span></li>`)
+        $('#topPosts').append(elem)
+      }
+    })
+
     $('#submit').click(event => {
       event.preventDefault()
       axios.post(`/posts/comment/${event.target.dataset.pid}`, {
@@ -109,7 +109,6 @@
     })
     axios.get(`/comments/${document.getElementById('submit').dataset.pid}`)
     .then(res=>{
-      console.log(res.data)
       for(let i=0; i<res.data.length; i++)
       {
         axios.get(`/api/users/${res.data[i].uid}`)
@@ -117,7 +116,7 @@
           let elem = $(`<div class="list-group">
           <span class="list-group-item">
             <p class="mb-1">${res.data[i].text}</p>
-            <small>Posted by ${username.data.username}</small>
+            <small>Posted by @<a href="/api/users/viewposts/{{User.id}}">${username.data.username}</a></small>
           </span>
         </div>`)
         $('#showComments').append(elem)
