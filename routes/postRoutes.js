@@ -11,6 +11,13 @@ router.get('/posts', (req, res) => {
   })
 })
 
+router.get('/topposts/:cat', (req, res) => {
+  db.query(`SELECT * FROM posts WHERE category_id = ${req.params.cat} ORDER BY score`, (err, posts) => {
+    if (err) { console.log(err) }
+    res.json(posts)
+  })
+})
+
 router.get('/getpost/:id', (req, res) => Post.findOne({ where: { id: req.params.id } })
   .then(post => res.json(post))
   .catch(err => console.log(err)))
