@@ -25,7 +25,7 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.get('/myposts', (req, res) => {
-  res.render('myPosts')
+  res.render('myposts')
 })
 
 // router.get('/posts/:id', (req, res) => {
