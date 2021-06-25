@@ -117,7 +117,7 @@
           let elem = $(`<div class="list-group">
           <span class="list-group-item">
             <p class="mb-1">${res.data[i].text}</p>
-            <small>Posted by ${username.data.username}</small>
+            <small>Posted by @<a href="/api/users/viewposts/{{User.id}}">${username.data.username}</a></small>
           </span>
         </div>`)
         $('#showComments').append(elem)
