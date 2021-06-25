@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Noto+Sans+SC:wght@300&display=swap"
     rel="stylesheet">
-  <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
@@ -46,18 +45,27 @@
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+          <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link loggedOut" href="/post/create">Create Post</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link loggedOut" href="/home" id="logout">Logout</a>
+        <li class="nav-item loggedOut">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle link-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              User
+            </button>
+            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton2">
+              <li><a class="dropdown-item nav-link px-2" href="/myposts">Manage My Posts</a></li>
+              <li><a id="logout" class="dropdown-item nav-link px-2" href="/home">Logout</a></li>
+            </ul>
+          </div>
         </li>
+        
 
         <li class="nav-item loggedIn"><a href="/users/login" class="nav-link px-2">Login</a></li>
         <li class="nav-item loggedIn"><a href="/users/register" class="nav-link px-2">Register</a></li>
-        <li class="nav-item loggedOut"><a href="/myposts" class="nav-link px-2">Manage My Posts</a></li>
       </ul>
     </div>
   </nav>
@@ -73,32 +81,6 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    var toolbarOptions = [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'code-block'],
-
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
-
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-
-        ['clean']                                         // remove formatting button
-      ];
-
-      var quill = new Quill('#editor', {
-        modules: {
-          toolbar: toolbarOptions
-        },
-        theme: 'snow'
-      });
     document.getElementById('logout').addEventListener('click', event => {
         localStorage.removeItem('token')
         window.location = '/'
