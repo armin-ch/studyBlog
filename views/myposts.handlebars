@@ -48,7 +48,6 @@
 </div>
       `)
           $('#myposts').append(elem)
-          console.log(posts.data[i].body.length)
           if (posts.data[i].body.length > 255){
           $(`#${i}`).append('...')
           }
