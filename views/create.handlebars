@@ -99,6 +99,7 @@
       console.log('post created')
       document.getElementById('body').value = ''
       document.getElementById('title').value = ''
+      window.location = '/myposts'
       })
     .catch(err => window.location = '/users/login')
   })
