@@ -15,7 +15,11 @@
     </div>
     <div class="mb-3">
       <label for="body" class="form-label">Post</label>
-      <textarea class="form-control" id="body" rows="9"></textarea>
+      <textarea class="form-control hidden" id="body" rows="9"></textarea>
+      <!-- Create the editor container -->
+      <div id="editor">
+        <p>Write your post here...</p>
+      </div>
     </div>
     <div class="mb-3">
     <select id="category_id" class="form-select" aria-label="Choose category">
@@ -31,10 +35,6 @@
   </div>
 
   
-  <!-- Create the editor container -->
-  <div id="editor">
-    <p>Write your post here...</p>
-  </div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -42,6 +42,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
 <script>
+  quill.getText
   var toolbarOptions = [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       ['blockquote', 'code-block'],
