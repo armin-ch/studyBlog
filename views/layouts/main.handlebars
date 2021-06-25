@@ -54,7 +54,6 @@
           <div class="dropdown">
             <button class="btn dropdown-toggle link-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
               aria-expanded="false">
-              User
             </button>
             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton2">
               <li><a class="dropdown-item nav-link px-2" href="/myposts">Manage My Posts</a></li>
@@ -91,6 +90,14 @@
         $('.loggedIn').hide()
       }
       else { $('.loggedOut').hide()}
+
+      axios.get('/api/validate/getusername/1',
+          {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+      .then(username=> { $('#dropdownMenuButton2').append(username.data) })
   </script>
   
 </body>
