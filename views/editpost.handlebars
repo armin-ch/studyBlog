@@ -1,0 +1,62 @@
+<header class="py-3 mb-4 bg-dark text-white border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
+      <span class="fs-4">Edit Post</span>
+    </a>
+  </div>
+</header>
+
+<main class="container">
+  <div id="createPost">
+    <form>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Post</label>
+        <textarea class="form-control" id="body" rows="9"></textarea>
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Create the toolbar container -->
+  <div id="toolbar">
+    <button class="ql-bold">Bold</button>
+    <button class="ql-italic">Italic</button>
+  </div>
+
+  <!-- Create the editor container -->
+  <div id="editor">
+    <p>Hello World!</p>
+  </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+<script>
+  axios.get('/getpost/{{pid}}')
+  .then(post=>{
+    console.log(post.data)
+    $('#title').val(post.data.title)
+    $('#body').val(post.data.body)
+  })
+  .catch(err=> console.log(err)) 
+
+  $('#submit').click(event=>{
+    event.preventDefault()
+    axios.put('/posts/{{pid}}', {
+      body: document.getElementById('body').value,
+      title: document.getElementById('title').value,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(res=> window.location = '/myposts')
+    .catch(err => console.log(err))
+  })
+      
+
+</script>

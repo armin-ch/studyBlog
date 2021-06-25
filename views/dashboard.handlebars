@@ -26,7 +26,7 @@
     <div class="col-md-11">
       <div class="card-body">
         <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
-        <p class="card-text">${posts.data[i].body.slice(0, 250)} ...</p>
+        <p id="${i}" class="card-text">${posts.data[i].body.slice(0, 250)}</p>
         <div class="row">
           <div class="col-md-10">
             <small class="text-muted">created by @<a href="/api/users/viewposts/${posts.data[i].user_id}">${user}</a> on ${posts.data[i].updatedAt.slice(0, 10)}</small>
@@ -42,6 +42,9 @@
 </div>
       `)
               $('section').append(elem)
+              if (posts.data[i].body.length > 255) {
+                $(`#${i}`).append('...')
+              }
             })
         }
       })

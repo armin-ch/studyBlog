@@ -11,6 +11,10 @@ router.get('/posts', (req, res) => {
   })
 })
 
+router.get('/getpost/:id', (req, res) => Post.findOne({ where: { id: req.params.id } })
+  .then(post => res.json(post))
+  .catch(err => console.log(err)))
+
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

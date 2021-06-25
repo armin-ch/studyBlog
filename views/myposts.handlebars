@@ -1,4 +1,4 @@
-<section class="container mb-3" id="myposts"><h1>  Your Posts</h1></section>
+<section class="container mb-3" id="myposts"><h1>Your Posts</h1></section>
 
 
 
@@ -27,13 +27,19 @@
     <div class="col-md-11">
       <div class="card-body">
         <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
-        <p class="card-text">${posts.data[i].body.slice(0, 250)} ...</p>
+        <p id="${i}" class="card-text">${posts.data[i].body.slice(0, 250)} </p>
         <div class="col-md-19">
           <small class="text-muted">created on ${posts.data[i].updatedAt.slice(0, 10)}</small>
         </div>
         <div class="col-md-2">
-          <a href="/posts/${posts.data[i].id}" class="btn btn-outline-dark" role="button">View Full Post</a>
-          <button onclick="deletePost(${posts.data[i].id}, ${res.data})" class="btn btn-danger delete">delete post</button>
+          <div class="row">
+          <a href="/posts/${posts.data[i].id}" class="btn btn-outline-dark col-md-4" role="button"><span class="material-icons">
+          visibility</span></a>
+          <button onclick="deletePost(${posts.data[i].id}, ${res.data})" class="btn btn-danger delete col-md-4"><span class="material-icons">
+          delete</span></button>
+          <a href="/editpost/${posts.data[i].id}" class="btn btn-outline-dark col-md-4" role="button"><span class="material-icons">
+          mode_edit</span></a>
+          </div>
         </div>
         </p>
       </div>
@@ -42,6 +48,9 @@
 </div>
       `)
           $('#myposts').append(elem)
+          if (posts.data[i].body.length > 255){
+          $(`#${i}`).append('...')
+          }
         }
       })
   })

@@ -20,6 +20,12 @@ router.get('/home', (req, res) => {
   res.render('home')
 })
 
+router.get('/editpost/:pid', (req, res) => {
+  res.render('editpost', {
+    pid: req.params.pid
+  })
+})
+
 router.get('/dashboard', (req, res) => {
   res.render('dashboard', { subhead: 'Dashboard' })
 })
