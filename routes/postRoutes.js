@@ -5,7 +5,7 @@ const mysql = require('mysql2')
 const db = mysql.createConnection(process.env.JAWSDB_URL || process.env.LOCALDB_URL)
 
 router.get('/posts', (req, res) => {
-  db.query('SELECT * FROM posts', (err, posts) => {
+  db.query('SELECT * FROM posts ORDER BY createdAt DESC', (err, posts) => {
     if (err) { console.log(err) }
     res.json(posts)
   })
