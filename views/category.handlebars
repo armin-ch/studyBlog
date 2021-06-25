@@ -5,11 +5,11 @@
 <div class="card mb-3" style="width: 100%;">
   <div class="row g-0">
     <div class="col-md-1 text-center center align-self-center">
-      <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up">
+      <a id="up{{post.id}}" onclick="upScore({{post.score}}, {{post.id}})" data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" class="d-block up">
         <p class="material-icons">expand_less</p>
       </a>
-      <p class="d-block">{{post.score}}</p>
-      <a data-id="{{post.id}}" href="/posts/{{post.id}}" class="d-block down">
+      <p id="votes{{post.id}}" class="d-block">{{post.score}}</p>
+      <a id="down{{post.id}}" onclick="downScore({{post.score}}, {{post.id}})" data-id="{{post.id}}" href="#" class="d-block down">
         <p class="material-icons">expand_more</p>
       </a>
     </div>
@@ -29,3 +29,42 @@
 
 
 {{/each}}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  function upScore(votes, id) {
+    votes++
+    axios.put(`/posts/${id}`, {
+      score: votes
+    },
+      {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      .then(res => { 
+        $(`#votes${id}`).text(votes)
+        $(`#up${id}`).css("color", "red")
+       })
+      .catch(err => console.log(err))
+  }
+  function downScore(votes, id) {
+    votes--
+    axios.put(`/posts/${id}`, {
+      score: votes
+    },
+      {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      .then(res => { 
+        $(`#votes${id}`).text(votes) 
+        $(`#down${id}`).css("color", "red")
+        })
+      .catch(err => console.log(err))
+  }
+</script>
