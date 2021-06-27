@@ -1,25 +1,25 @@
 <header class="py-3 mb-4 bg-dark text-white border-bottom">
   <div class="container d-flex flex-wrap justify-content-center">
-    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white">
-      <span class="fs-4">Login</span>
-    </a>
+    <span class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white fs-4">Login</span>
   </div>
 </header>
 
 <main class="container">
-<form>
-  <div class="mb-3">
-    <label for="username" class="form-label">username</label>
-    <input type="text" class="form-control" id="username" >
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password">
-  </div>
-  <button id="login" type="submit" class="btn btn-primary">Login</button>
-  <br/>
-  <a href="/users/register">sign up here</a>
-</form>
+
+  <form>
+    <div class="mb-3">
+      <label for="username" class="form-label">username</label>
+      <input id="username" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input id="password" type="password" class="form-control">
+    </div>
+    <button id="login" type="submit" class="btn btn-light col-lg-12 mb-3">Login</button>
+    <br/>
+    <a href="/users/register" class="btn btn-dark col-lg-12 mb-3">sign up here</a>
+  </form>
+  
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>

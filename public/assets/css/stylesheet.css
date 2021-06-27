@@ -21,13 +21,29 @@ h5 {
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
   background-color: rgba(0,0,0,0.2)!important;
-  color: #fff;
+  color: #fff!important;
   border-top: 0px solid #222;
   border-left: 0px solid #222;
   border-right: 0px solid #222;
   border-bottom: 0px solid #222;
   border-radius: 5px;
   padding: 1vh 2vh;
+  box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid #222;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #212529 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-label {
@@ -47,7 +63,6 @@ a:hover {
 p {
   letter-spacing: 0.025em;
 }
-
 
 h1, h2, h3, h4, h5 {
   font-family: 'Josefin Sans', sans-serif;
