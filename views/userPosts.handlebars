@@ -26,12 +26,13 @@
       <div class="card-body">
         <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
         <p id="${i}" class="card-text">${posts.data[i].body.slice(0, 250)}</p>
-        <div class="col-md-19">
-          <small class="text-muted">created on ${posts.data[i].updatedAt.slice(0, 10)}</small>
-        </div>
-        <div class="col-md-2">
-          <a href="/posts/${posts.data[i].id}" class="btn btn-outline-dark" role="button">View Full Post</a>
-          <button onclick="deletePost(${posts.data[i].id})" class="btn btn-danger delete">delete post</button>
+        <div class="row">
+          <div class="col-md-10">
+            <small class="text-muted">created on ${posts.data[i].updatedAt.slice(0, 10)}</small>
+          </div>
+          <div class="col-md-2">
+            <a href="/posts/${posts.data[i].id}" class="btn btn-secondary link-light text-light btn-sm" role="button">View Full Post</a>
+          </div>
         </div>
         </p>
       </div>
