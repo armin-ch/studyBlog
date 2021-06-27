@@ -30,9 +30,7 @@ router.get('/categories', (req, res) => {
 router.get('/categories/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, 
-      {
-      include: [Post]
-      }
+      { include: [Post] }
     );
     const category = categoryData.get({ plain: true });
       

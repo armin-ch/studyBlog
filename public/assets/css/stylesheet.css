@@ -1,3 +1,8 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #282c30;
   color: #fff;
@@ -6,6 +11,7 @@ body {
   font-size: 1.0rem;
   letter-spacing: 0.12rem;
   font-weight: 400;
+  margin-bottom: 60px;
 }
 
 main {
@@ -13,10 +19,42 @@ main {
   color: #fff;
 }
 
+a {
+  text-decoration: none;
+  color: #fcba03;
+}
+
+a:hover {
+  color: red !important;
+}
+
+p {
+  letter-spacing: 0.025em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+}
+
 h5 {
   font-weight: 600;
 }
 
+.mb-10 {
+  margin-bottom: 15vh;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Input Select Forms */
 .form-control, .form-control:focus, .form-select {
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
@@ -51,22 +89,8 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
-a {
-  text-decoration: none;
-  color: #fcba03;
-}
+option {
 
-a:hover {
-  color: red;
-}
-
-p {
-  letter-spacing: 0.025em;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Josefin Sans', sans-serif;
-  text-transform: uppercase;
 }
 
 .btn-check:focus+.btn, .btn:focus {
