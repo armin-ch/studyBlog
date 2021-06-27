@@ -7,24 +7,24 @@
 </header>
 
 <main class="container">
+  <form>
+    <div class="mb-3">
+      <label for="username" class="form-label">Create your username</label>
+      <input type="text" class="form-control" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Create your Password</label>
+      <input type="password" class="form-control" id="password">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Enter your email</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <button id="register" type="submit" class="btn btn-light col-lg-12 mb-3">Register</button>
+    <br />
+    <a href="/login" class="btn btn-dark col-lg-12">Already Registered? Login here</a>
+  </form>
 
-<form>
-  <div class="mb-3">
-    <label for="username" class="form-label">Create your username</label>
-    <input type="text" class="form-control" id="username">
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Create your Password</label>
-    <input type="password" class="form-control" id="password">
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Enter your email</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  <button id="register" type="submit" class="btn btn-primary">Register</button>
-  <br />
-  <a href="/login">Login here</a>
-</form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>

@@ -1,7 +1,7 @@
 /* home page */
 
 .container-fluid {
-  max-width: 1366px;
+
 }
 
 #row1 {
@@ -9,51 +9,54 @@
   background-image: url("../img/background2.jpg");
   background-color: #333;
   max-width: 100%;
-  min-height: 35vh;
+  min-height: 55vh;
   background-size: cover;
   background-position: center;
+  font-family: 'Permanent Marker', cursive;
 }
 #introcol {
   color: rgba(255, 255, 254, 0.815);
   text-align: left;
-  padding-top: 40px;
-  padding-left: 20px;
-  font-family: 'Permanent Marker', cursive;
+  padding-top: 8vh;
+  padding-left: 5vh;
+  font-family: 'Permanent Marker', cursive !important;
 }
 
 #row2 {
+  margin: auto;
   display: flex;
-  min-height: 20vh;
+  min-height: 25vh;
   font-size: 1.3em;
-  font-family: 'Caveat', cursive;
-  font-family: 'Noto Sans SC', sans-serif;
 }
 
 #chevroncol {
-  background-color: rgb(58, 55, 55);
+
+  background-color: rgba(0, 0, 0, 0.3);
   clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
 
 #infocol {
   text-align: center;
+  max-width: 60%;
+  margin: auto;
 }
 #row3 {
+  max-width: 1366px;
+  margin: auto;
   display: flex;
   height: 400px;
-  background: white;
-  font-family: 'Caveat', cursive;
-  font-family: 'Noto Sans SC', sans-serif;
 }
 
 /* post page */
 .card {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.2);
+  border: none;
 }
 
 /* category page */
-.card-body a {
+/* .card-body a {
   color: #666;
-}
+} */
 
 .topics-icon {
   font-size: 5rem;

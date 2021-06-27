@@ -1,56 +1,67 @@
 <main class="container-fluid">
   <div class="row" id="row1">
     <div class="col-lg-6" id="introcol">
-      <h1 id="intro"><b>Programming made easy.</b></h1>
-      <h1 id="intro"><b>Study smarter.</b></h1>
-      <h1 id="intro"><b>Google less.</b></h1>
+      <h1 id="intro" class="home"><b>Programming is better together.</b></h1>
+      <h1 id="intro" class="home"><b>Study smarter.</b></h1>
+      <h1 id="intro" class="home"><b>Google less.</b></h1>
       <div class="col-lg-6"></div>
     </div>
   </div>
 
-  <div class="row" id="row2">
-    <div class="col-lg-6" id="infocol">
-      <h2>Study Blog</h2>
-      <p>A blog for developers. Learn, create, and help others through a connected community of likeminded web
+<div class="home-body">
+  <div class="row pt-5 mb-5" id="row2">
+    <div class="align-self-center" id="infocol">
+      <span class="material-icons home-icon">polymer</span>
+      <h2 class="mb-2"> Study Blog</h2>
+      <p>A blog for developers. Learn, create, and help others through a connected community of like-minded web
         developers. Browse through study material others have posted or show off skills you have already
-        mastered.Studying is made easy through top filtered posts on CSS, HTML5, and JavaScript.</p>
+        mastered. Studying is made easy through top filtered posts on CSS, HTML5, and JavaScript.</p>
+      
     </div>
-    <div class="col-lg-6" id="chevroncol"></div>
   </div>
 
   <div class="row" id="row3">
+      {{!-- Card 1 --}}
     <div class="col-lg-4">
-      <div class="card" style="width: 18rem;">
+      <a href="/categories">
+      <div class="card">
         <img src="./assets/img/study4.jpg" class="card-img-top" alt="categories">
         <div class="card-body">
           <h5 class="card-title">Categories</h5>
-          <p class="card-text"> Choose from CSS, HTML5, and Javascript.
+          <p class="card-text">Topics include HTML/CSS, Javascript, Node.JS and MySQL.
           </p>
-          <a href="/categories" class="btn btn-secondary">Categories</a>
         </div>
       </div>
+      </a>
     </div>
+    {{!-- Card 2 --}}
     <div class="col-lg-4">
-      <div class="card" style="width: 18rem;">
+      <a href="/dashboard">
+      <div class="card">
         <img src="./assets/img/study3.jpg" class="card-img-top" alt="popular">
         <div class="card-body">
           <h5 class="card-title">Popular</h5>
           <p class="card-text">View popular posts that have helped people just like you looking for web development
             help.
           </p>
-          <a href="/dashboard" class="btn btn-secondary">Popular</a>
         </div>
       </div>
+      </a>
     </div>
+    {{!-- Card 3 --}}
     <div class="col-lg-4">
-      <div class="card" style="width: 18rem;">
+      <a href="/post/create">
+      <div class="card">
         <img src="./assets/img/study2.jpg" class="card-img-top" alt="create">
         <div class="card-body">
           <h5 class="card-title">Create</h5>
           <p class="card-text">Join our community and create a post to help others study material that you've mastered!
           </p>
-          <a href="/post/create" class="btn btn-secondary">Create</a>
         </div>
       </div>
+      </a>
     </div>
+  </div>
+  {{!-- End of Row3 --}}
+
   </div>
