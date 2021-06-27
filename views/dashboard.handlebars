@@ -19,9 +19,9 @@
         <div class="card mb-3" style="width: 100%;">
           <div class="row g-0">
             <div class="col-md-1 text-center center align-self-center">
-              <a data-score="${posts.data[i].score}" data-id="${posts.data[i].id}" href="#" onclick="upScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block up"><p class="material-icons">expand_less</p></a>
-          <p class="d-block">${posts.data[i].score}</p>
-          <a data-id="${posts.data[i].id}" href="#" onclick="downScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block down"><p class="material-icons">expand_more</p></a>
+              <a id="up${posts.data[i].id}" href="#" onclick="upScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block up"><p class="material-icons">expand_less</p></a>
+          <p id="votes${posts.data[i].id}" class="d-block">${posts.data[i].score}</p>
+          <a id="down${posts.data[i].id}" href="#" onclick="downScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block down"><p class="material-icons">expand_more</p></a>
             </div>
     <div class="col-md-11">
       <div class="card-body">
@@ -58,7 +58,10 @@
               'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
           })
-          .then(res=>{location.reload()})
+          .then(res=>{
+            $(`#votes${id}`).text(votes)
+            $(`#up${id}`).css("color", "red")
+          })
           .catch(err => console.log(err))
       }
       function downScore(votes, id) {
@@ -71,7 +74,10 @@
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
               }
             })
-            .then(res => { location.reload() })
+            .then(res => {
+              $(`#votes${id}`).text(votes)
+              $(`#down${id}`).css("color", "red")
+             })
             .catch(err => console.log(err))
         }
   </script>
