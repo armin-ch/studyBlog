@@ -30,10 +30,12 @@ router.get('/categories', (req, res) => {
 router.get('/categories/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, 
-      { include: [Post] }
+      {
+        include: [{ model: Post, order: [['score', 'DESC']] } ]
+      }
     );
     const category = categoryData.get({ plain: true });
-      
+    category.posts.sort((a, b) => b.score - a.score)
     res.render('category', {
       ...category,
       subhead: category.name
