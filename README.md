@@ -13,4 +13,8 @@ This is a blog application that allows users to post study material for the foll
 
 Install dependencies with `npm i dotenv express jsonwebtoken mysql2 passport-local-sequelize sequelize nodemailer`
 
+## Deployment 
+
+This application is deployed to Heroku. Click [here](https://studyblog.herokuapp.com/) to be redirected to the deployed site.
+
 
