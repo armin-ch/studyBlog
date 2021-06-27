@@ -3,10 +3,10 @@
 <!-- Loop over each object in the category array -->
 {{#each categories as |category| }}
 
-<div class="card mb-3" style="width: 100%;">
+<div class="card categories mb-3" style="width: 100%;">
   <div class="row g-0">
     <div class="col-md-2 text-center center align-self-center">
-      <a href="#"><img src="./assets/img/icon-{{category.name}}.png" class="topics-img"></a>
+      <a href="/categories/{{category.id}}"><img src="./assets/img/icon-{{category.name}}.png" class="topics-img"></a>
     </div>
     <div class="col-md-10">
       <div class="card-body">
