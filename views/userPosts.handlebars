@@ -1,4 +1,11 @@
-<h1>Posts made by @</h1>
+<header class="py-3 mb-4 bg-dark text-white border-bottom">
+  <section class="container d-flex flex-wrap justify-content-center">
+    <span class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none text-white fs-4">Posts made by  <span id="username">@</span></span>
+  </section>
+</header>
+
+<main class="container">
+
 <section id="userPosts"></section>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -40,7 +47,7 @@
     })
     axios.get('/api/users/{{user_id}}')
     .then(user=>{
-      $('h1').append(user.data.username)
+      $('#username').append(user.data.username)
     })
     function upScore(votes, id) {
         votes++
