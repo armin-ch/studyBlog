@@ -40,6 +40,10 @@ a {
   color: #fcba03;
 }
 
+a:hover {
+  color: red;
+}
+
 p {
   letter-spacing: 0.025em;
 }
