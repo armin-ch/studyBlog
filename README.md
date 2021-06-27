@@ -32,4 +32,8 @@ Dependencies include:
 
 This application is deployed to Heroku. Click [here](https://studyblog.herokuapp.com/) to be redirected to the deployed site.
 
+## Contributors/maintainers:
+ * Armin - https://github.com/armin-ch/
+ * Dia - https://github.com/diaseu/
+
 
