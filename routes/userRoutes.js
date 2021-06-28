@@ -24,7 +24,7 @@ router.post('/users/register', (req, res) => {
       from: 'studyblognoresponse@gmail.com',
       to: email,
       subject: 'Study Blog Account Created!',
-      html: `<p> Your study blog account has been created. Your username is: ${username}. You may now login using your username and password. Click <a href="https://studyblog.herokuapp.com/users/login"> here </a> to be redirected to the login page.</p>`
+      html: `<p> Hello ${username}! Your study blog account has been created. You may now login using your username and password. Click <a href="https://studyblog.herokuapp.com/users/login"> here </a> to be redirected to the login page.</p>`
     }
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
