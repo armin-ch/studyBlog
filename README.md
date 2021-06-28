@@ -13,10 +13,9 @@ This is a blog application that allows users to post study material for the foll
 * Node.JS
 * SQL
 
-## Install
+## Requirements
 
-Install dependencies with `npm install`
-Dependencies include: 
+This application requires the following modules:: 
 - dotenv
 - express
 - express-handlebars
@@ -27,6 +26,12 @@ Dependencies include:
 - jsonwebtoken
 - sequelize
 - passport-local-sequelize
+
+## Installation
+
+Paste the following code into command line to install all dependencies:
+
+``` npm i dotenv express express-handlebars mysql2 nodemailer passport passport-jwt jsonwebtoken sequelize passport-local-sequelize ```
 
 ## Deployment 
 
