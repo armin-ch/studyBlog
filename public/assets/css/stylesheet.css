@@ -131,6 +131,17 @@ nav {
   letter-spacing: 0.12rem;
 }
 
+.codebox {
+  border-radius: 5px;
+  border: 1px solid #fff;
+  background-color: rgba(0,0,0, 0.5);
+  font-family: monospace;
+  padding: 10px; 
+  margin-top: 5px;
+  margin-bottom: 10px;
+  letter-spacing: 0;
+}
+
 /* Home */
 h1.home, h2.home {
   /* font-family: 'Permanent Marker', cursive !important; */
