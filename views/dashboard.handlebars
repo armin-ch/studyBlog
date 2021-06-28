@@ -16,12 +16,12 @@
               let elem = $(`
         <div class="card mb-3" style="width: 100%;">
           <div class="row g-0">
-            <div class="col-md-1 text-center center align-self-center">
+            <div class="col-1 text-center pt-3 align-self-start">
               <a id="up${posts.data[i].id}" href="#" onclick="upScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block up"><p class="material-icons">expand_less</p></a>
           <p id="votes${posts.data[i].id}" class="d-block">${posts.data[i].score}</p>
           <a id="down${posts.data[i].id}" href="#" onclick="downScore(${posts.data[i].score}, ${posts.data[i].id})" class="d-block down"><p class="material-icons">expand_more</p></a>
             </div>
-    <div class="col-md-11">
+    <div class="col-11">
       <div class="card-body">
         <h5 class="card-title"><a href="/posts/${posts.data[i].id}">${posts.data[i].title}</a></h5>
         <p id="${i}" class="card-text">${posts.data[i].body.slice(0, 250)}</p>
@@ -30,7 +30,7 @@
             <small class="text-muted">created by @<a href="/api/users/viewposts/${posts.data[i].user_id}">${user}</a> on ${posts.data[i].updatedAt.slice(0, 10)}</small>
           </div>
           <div class="col-md-2">
-            <a href="/posts/${posts.data[i].id}" class="btn btn-secondary link-light text-light btn-sm" role="button">View Full Post</a>
+            <a href="/posts/${posts.data[i].id}" class="btn btn-secondary link-light text-light btn-sm viewFullpost" role="button">View Full Post</a>
           </div>
         </div>
         </p>

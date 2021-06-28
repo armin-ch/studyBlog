@@ -1,6 +1,7 @@
 html {
   position: relative;
   min-height: 100%;
+  transition: all 0.75s ease;
 }
 
 body {
@@ -109,6 +110,11 @@ nav {
   letter-spacing: 0;
   color: #fcba03;
   font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.navbar-toggler {
+  color: #fff;
 }
 
 .nav-link {
@@ -184,4 +190,8 @@ span.home-icon {
 }
 #myposts .card-title {
   margin-bottom: 2vh;
+}
+
+.viewFullpost {
+  width: 100%;
 }

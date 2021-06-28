@@ -1,30 +1,10 @@
-const router = require('express').Router()
-const { User, Post } = require('../models')
-const passport = require('passport')
-const jwt = require('jsonwebtoken')
-const nodemailer = require('nodemailer')
-
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'studyblognoresponse@gmail.com',
-    pass: 'studyblog2021'
-  }
-})
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600&family=Lato:wght@300;400;700&display=swap"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-
-router.post('/users/register', (req, res) => {
-  const { username, email } = req.body
-  User.register(new User({
-    username, email
-  }), req.body.password, err => {
-    if (err) { console.log(err) }
-    let mailOptions = {
-      from: 'studyblognoresponse@gmail.com',
-      to: email,
-      subject: 'Study Blog Account Created!',
-      html: `
 <table role="presentation" cellspacing="0" cellpadding="0" border="0"
   style="width:100%;font-family:'Lato','Apple SD Gothic Neo',Arial,sans-serif;padding:0;margin:0 auto;background-color:#212529;">
   <tbody>
@@ -44,7 +24,8 @@ router.post('/users/register', (req, res) => {
             <tr>
               <td
                 style="font-family:'Josefin Sans','Apple SD Gothic Neo',Arial,sans-serif;padding:0;margin:0;text-align:center">
-                  <h1 style="color:#fff;text-transform:uppercase;font-size:34px;"><img src="https://i.imgur.com/KxoRYQI.png" style="margin-bottom:2rem;"><br />Study Blog</h1>
+                  <h1 style="color:#fff;text-transform:uppercase;font-size:34px;"><img src="https://i.imgur.com/KxoRYQI.png" style="margin-bottom:2rem;"><br />Study
+                    Blog</h1>
                 </td>
             </tr>
             <tr>
@@ -98,7 +79,8 @@ router.post('/users/register', (req, res) => {
                                 <hr
                                   style="height:1px;border:0;background:#c4c4c4;width:62px;margin:30px auto;display:block">
                                 <p
-                                  style="font-family:'Lato','Apple SD Gothic Neo',Arial,sans-serif;margin:0;padding:0;font-size:14px;line-height:26px;color:#0e0e0e;text-align:center">Hey <b>${username}!</b><br />Your <a href="https://studyblog.herokuapp.com/" style="color:#212529;font-weight:700;text-decoration:none;">Study Blog</a> account has been created.<br />You may now login using your username and password.</p>
+                                  style="font-family:'Lato','Apple SD Gothic Neo',Arial,sans-serif;margin:0;padding:0;font-size:14px;line-height:26px;color:#0e0e0e;text-align:center">
+                                  Hey <b>${username}!</b><br />Your <a href="https://studyblog.herokuapp.com/" style="color:#212529;font-weight:700;text-decoration:none;">Study Blog</a> account has been created.<br />You may now login using your username and password.</p>
                               </td>
                             </tr>
                             <tr>
@@ -191,47 +173,4 @@ router.post('/users/register', (req, res) => {
           alt="" width="1" height="28" style="display:block;height:28px;width:1px"></td>
     </tr>
   </tbody>
-</table>`
-    }
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    })
-    res.sendStatus(200)
-  })
-})
-
-router.post('/users/login', (req, res) => {
-  User.authenticate()(req.body.username, req.body.password, (err, user) => {
-    if (err) { console.log(err) }
-    res.json(user ? jwt.sign({ id: user.id }, process.env.SECRET) : null)
-  })
-})
-
-router.get('/users/:id', (req, res) => User.findOne({ where: { id: req.params.id } })
-  .then(user => res.json(user))
-  .catch(err => console.log(err)))
-
-router.get('/validate/users/:uid', passport.authenticate('jwt'), (req, res) => User.findOne({ where: { id: req.params.uid } })
-  .then(user=>res.json(req.user.id)))
-
-router.get('/validate/getusername/:uid', passport.authenticate('jwt'), (req, res) => User.findOne({ where: { id: req.params.uid } })
-  .then(user => res.json(req.user.username)))
-
-
-router.get('/users/posts/:uid', (req, res) => Post.findAll({ where: { user_id: req.params.uid } })
-  .then(posts => res.json(posts))
-  .catch(err => console.log(err)))
-
-router.get('/users/viewposts/:uid', (req, res) => Post.findAll({ where: { id: req.params.uid } })
-  .then(posts => {
-    res.render('userPosts', {
-      user_id: req.params.uid
-    })
-  })
-  .catch(err => console.log(err)))
-
-module.exports = router
+</table>
